@@ -3,9 +3,9 @@
   <li class="test" ng-repeat="item in files">
       <div class="file">
         <header>{{item.title}}</header>
-        {{item.created}}
+        {{item.created | amDateFormat:'Do MMM YYYY, h:mm a'}}
         {{item.id}}
-        {{item.modified}}
+        {{item.modified | amDateFormat:'Do MMM YYYY, h:mm a'}}
         {{item.title}}
         {{item.type}}
         <footer>{{item.status}}</footer>
