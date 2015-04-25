@@ -1,12 +1,13 @@
 <div class="main">
   <ul class="file-list">
   <li class="test" ng-repeat="item in files">
-      <div class="file">
+  
+      <div class="file" ng-if="!folder">
         <header>{{item.title}}</header>
-        {{item.created | amDateFormat:'Do MMM YYYY, h:mm a'}}
-        {{item.id}}
-        {{item.modified | amDateFormat:'Do MMM YYYY, h:mm a'}}
-        {{item.title}}
+        
+        <p>Created: {{item.created * 1000 | amDateFormat:'DD/MM/YYYY, h:mm a'}}</p>
+        
+        <p>Modified: {{item.modified * 1000 | amDateFormat:'DD/MM/YYYY, h:mm a'}}</p>
         {{item.type}}
         <footer>{{item.status}}</footer>
 
