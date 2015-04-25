@@ -7,16 +7,30 @@
  * # file
  * Service in the penneoApp.
  */
-angular.module('penneoApp')
-  .service('fileService', function () {
-  	
-  	return ({
-  		list:list
-  	});
+ angular.module('penneoApp')
+ .service('fileService', function ($http, ENV) {
 
-  	function list () {
-  		
-  	}
+ 	return ({
+ 		list:list, 
+ 		getStatus:getStatus
+ 	});
 
-  });
+ 	function list () {
+ 		var request = $http.get(ENV.filesData);
+
+ 		return request.then(
+ 			function(response) {
+ 				return response.data;
+ 			},
+ 			function(data, status) {
+ 				return {error: data, status: status};
+ 			});
+ 	}
+
+ 	function getStatus (status) {
+
+ 		return status;
+ 	}
+
+ });
 

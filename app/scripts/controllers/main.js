@@ -7,11 +7,11 @@
  * # MainCtrl
  * Controller of the penneoApp
  */
-angular.module('penneoApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+ angular.module('penneoApp')
+ .controller('MainCtrl', function ($scope, fileService) {
+
+ 	fileService.list().then(function (response) {
+ 		$scope.files = response.data;
+ 	});
+ 	
+ });

@@ -8,7 +8,7 @@
  * Service in the penneoApp.
  */
 angular.module('penneoApp')
-  .constant('ENV', function () {
-  	filesData: '../assets/data.json',
-  	statusData: '../assets/status.json',
+  .constant('ENV', {
+  	filesData: 'assets/json/data.json',
+  	statusData: 'assets/json/status.json'
   });

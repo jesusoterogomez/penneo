@@ -1,8 +1,15 @@
 <div class="main">
   <ul class="file-list">
-  <li class="test" ng-repeat="thing in awesomeThings">
+  <li class="test" ng-repeat="item in files">
       <div class="file">
-        {{thing}}
+        <header>{{item.title}}</header>
+        {{item.created}}
+        {{item.id}}
+        {{item.modified}}
+        {{item.title}}
+        {{item.type}}
+        <footer>{{item.status}}</footer>
+
       </div>
     </li>
   </ul>
