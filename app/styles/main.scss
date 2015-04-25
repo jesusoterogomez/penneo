@@ -41,6 +41,9 @@ $body-color: $color_3;
 
 // Spacing & Sizing
 $default-padding: 1em;
+$default-container-size: 90%;
+$medium-container-size: 80%;
+$large-container-size: 70%;
 
 // Breakpoints
 $small: 480px; 
@@ -58,6 +61,7 @@ html {
   }
 }
 
+// Header 
 .header {
   background: $header-background;
   color: $header-color;
@@ -71,6 +75,7 @@ html {
   }
 }
 
+// Navigation
 .nav {
   padding-bottom: $default-padding;
   li {
@@ -89,14 +94,29 @@ html {
   }
 }
 
+// Base Container
 .container {
-  width: 90%;
+  width: $default-container-size;
   margin: 0 auto;
   position: relative;
 }
 
 .main-content {
   padding: $default-padding 0;
+}
+
+/* Subtle animation for rendered ng-repeat items */
+.ng-enter {
+  -webkit-transition: 1s;
+  transition: 1s;
+  opacity: 0;
+  position: relative;
+  top: -5px;
+  &.ng-enter-active {
+    position: relative;
+    opacity: 1;
+    top: 0;
+  }
 }
 
 .file-list{
@@ -106,9 +126,9 @@ html {
     display: inline-block;
     padding:$default-padding/2;
     .file{
-    background: $color_4;
-    padding:$default-padding/2;
-      
+      background: $color_4;
+      padding:$default-padding/2;
+
     }
   }
 }
