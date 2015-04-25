@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 /* Imports */
 
 // CSS Reset for cross-browser normalizing.
@@ -47,4 +49,13 @@ html {
   color:$body-color;
   font-size: $default-font-size;
   font-family: $default-font;
+}
+
+.header {
+  background: $header-background;
+  color: $header-color;
+  a {
+    color: $header-color;
+    text-decoration: none;
+  }
 }
