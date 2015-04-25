@@ -17,8 +17,8 @@ $color_0:#FFFFFF; // White
 $color_1:#050f1e; // Dark Blue
 $color_2:#34d298; // Turquoise
 $color_3:#666666; // Dark Gray
-$color_5:#dededb; // Medium Gray
-$color_4:#f9f9f9; // Light Gray
+$color_4:#dededb; // Medium Gray
+$color_5:#f9f9f9; // Light Gray
 
 // Font Families
 $default-font: 'Abel', sans-serif;
@@ -27,6 +27,7 @@ $lato: 'Lato', sans-serif;
 
 // Font Sizing
 $default-font-size:  12pt;
+$header-menu-size:   0.8em;
 $title-size:         2em;
 $subtitle-size:      1.5em;
 $paragraph-size:     1em;
@@ -37,6 +38,9 @@ $header-color: $color_0;
 
 $body-background: $color_0;
 $body-color: $color_3;
+
+// Spacing & Sizing
+$default-padding: 1em;
 
 // Breakpoints
 $small: 480px; 
@@ -49,13 +53,62 @@ html {
   color:$body-color;
   font-size: $default-font-size;
   font-family: $default-font;
+  a {
+    text-decoration: none;
+  }
 }
 
 .header {
   background: $header-background;
   color: $header-color;
-  a {
-    color: $header-color;
-    text-decoration: none;
+  position: relative;
+  text-align: center;
+  .container{
+    padding: $default-padding 0;
+  }
+  .logo{
+    height: 32px;
+  }
+}
+
+.nav {
+  padding-bottom: $default-padding;
+  li {
+    display: inline-block;
+    a {
+      color:$header-color;
+      text-transform: uppercase;
+      font-family: $lato;
+      font-size: $header-menu-size;
+      padding: 0 $default-padding;
+      font-weight: 700;
+    }
+    &.active a {
+      color:$color_2;
+    }
+  }
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.main-content {
+  padding: $default-padding 0;
+}
+
+.file-list{
+  li{
+    width: 50%;
+    box-sizing:border-box;
+    display: inline-block;
+    padding:$default-padding/2;
+    .file{
+    background: $color_4;
+    padding:$default-padding/2;
+      
+    }
   }
 }
