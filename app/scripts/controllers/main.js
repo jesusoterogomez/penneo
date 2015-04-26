@@ -10,7 +10,7 @@
  angular.module('penneoApp')
  .controller('MainCtrl', function ($scope, fileService) {
  	$scope.list = [];
- 	$scope.itemsByPage = 10;
+ 	$scope.itemsByPage = 4;
 
  	fileService.list().then(function (response) {
  		$scope.list = response.data;

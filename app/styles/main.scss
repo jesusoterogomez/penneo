@@ -166,6 +166,7 @@ html {
     border:1px solid $color_4;
     border-radius: $br;
   }
+
   // Font Awesome Sort Icons for table
   th[st-sort]{
     cursor: pointer;
@@ -187,6 +188,34 @@ html {
     &.st-sort-descent:after{
       content: "\f0de";
 
+    }
+  }
+  
+  tfoot td{
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .pagination li{
+    background: $color_4;
+    color: $color_3;
+    border-radius: $br;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-block;
+    margin: ($default-margin/4);
+
+    a {
+      font-size: $header-menu-size;
+      padding: ($default-padding/2) $default-padding;
+      display: inline-block;
+    }
+    &:first-child {
+        margin-left: 0;
+    }
+    &.active {
+      background: $color_2;
+      color: $color_1;
     }
   }
 }
