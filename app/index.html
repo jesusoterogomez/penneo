@@ -17,10 +17,11 @@
   </head>
   <body ng-app="penneoApp">
 
-    <div class="header">
+    <div class="header" ng-controller="MainCtrl">
         <div class="container">
           <div class="navbar-header">
-
+          <!-- mobile drawer icon -->
+          <a href="#" class="mobile nav-toggle" ng-click="mobileDrawer($event)"><i class="fa fa-lg fa-bars"></i></a>
           <a class="navbar-brand" href="#/">
             <img class="logo" src="images/logo_white.png" alt="Penneo">
           </a>
@@ -28,6 +29,7 @@
         </div>
 
         <ul class="nav navbar-nav">
+              <a href="#/" class="mobile close" ng-click="mobileDrawer($event)"><i class="fa fa-close"></i></a>
               <li class="active"><a href="#/">My Files</a></li>
               <li><a ng-href="#/about">Inbox</a></li>
               <li><a ng-href="#/">Support</a></li>
@@ -38,11 +40,6 @@
       <div class="main-content" ng-view=""></div>
     </div>
 
-    <div class="footer">
-      <div class="container">
-        <!-- <p>Footer</p> -->
-      </div>
-    </div>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

@@ -1,11 +1,11 @@
 'use strict';
 
 /**
- * @ngdoc service
+ * @ngdoc constants
  * @name penneoApp.config
  * @description
  * # config
- * Service in the penneoApp.
+ * Defines constants in the penneoApp.
  */
 angular.module('penneoApp')
   .constant('ENV', {

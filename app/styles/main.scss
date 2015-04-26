@@ -12,7 +12,7 @@
 
 /* Variables */
 
-// Color Theme
+// Color Theme (Extracted from Penneo.com)
 $color_0:#FFFFFF; // White
 $color_1:#050f1e; // Dark Blue
 $color_2:#34d298; // Turquoise
@@ -52,6 +52,8 @@ $small: 480px;
 $medium: 768px;
 $large: 1200px;
 
+
+// Default Style.
 html {
   position: relative;
   background: $body-background;
@@ -74,6 +76,9 @@ html {
   }
   .logo{
     height: 32px;
+    /*To optimize bandwith consumption, the image should be this size instead of
+    scaling it down, but since I don't have a vector image for the logo, I used
+    the logo from Penneo.com and manually scaled it. */
   }
 }
 
@@ -113,6 +118,9 @@ html {
 }
 
 /* Subtle animation for rendered ng-repeat items */
+/* On a bigger project, the animations can be set on a per-interaction basis.
+For simplification purposes, I set them as global animations for the whole
+application, as it gives a smoother overall feeling.*/
 .ng-enter {
   -webkit-transition: 1s;
   transition: 1s;
@@ -124,14 +132,14 @@ html {
   }
 }
 
-
+// Table Styling
 .file-list table{
   width: 100%;
-
+  // Card titles hidden on desktop layout.
   .card {
     display: none;
   }
-  
+  // Header Styling
   thead .table-headers{
     border-radius: $br;
     background: $color_2;
@@ -145,15 +153,17 @@ html {
       padding:($default-padding/2);
     }
   }
+  // Body Styling
   tbody {
     background: $color_0;
     border: 1px solid $color_4;
     border-top: none;
   }
+  // Cell Spacing
   td{
     padding:$default-padding ($default-padding/2);
   }
-  
+  // Search Bar Styling
   input[st-search] {
     width: 100%;
     padding: ($default-padding/2);
@@ -161,11 +171,11 @@ html {
     border:1px solid $color_4;
     border-radius: $br;
   }
-
   // Font Awesome Sort Icons for table
   th[st-sort]{
     cursor: pointer;
     &:after{
+      /* Attributes extracted from FontAwesome */
       display: inline-block;
       font: normal normal normal 14px/1 FontAwesome;
       font-size: inherit;
@@ -182,15 +192,16 @@ html {
     }
     &.st-sort-descent:after{
       content: "\f0de";
-
     }
   }
-  
+
+  // Normalize Table footer padding
   tfoot td{
     padding-left: 0;
     padding-right: 0;
   }
-
+  
+  // Pagination Styling
   .pagination li{
     background: $color_4;
     color: $color_3;
@@ -199,12 +210,12 @@ html {
     cursor: pointer;
     display: inline-block;
     margin: ($default-margin/4);
-
     a {
       font-size: $header-menu-size;
       padding: ($default-padding/2) $default-padding;
       display: inline-block;
     }
+    // Make pagination buttons align with table.
     &:first-child {
       margin-left: 0;
     }
@@ -215,15 +226,16 @@ html {
   }
 }
 
-@media screen and (max-width: $medium) {
+// Medium Devices Breakpoint. (Transforms Table into Cards Layout)
 
+@media screen and (max-width: $medium) {
   .file-list table{
     display: block;
     .card {
       display: inline;
-
       font-weight: 700;
     }
+    // Convert table elements to block to stack them into a card layout.
     td, th, tr, tfoot {
       display: block;
     }
@@ -248,6 +260,7 @@ html {
       tr{
         box-sizing:border-box;
         display: inline-block;
+        vertical-align: top;
         background: none;
         width: 50%;
         padding:$default-padding;
@@ -257,6 +270,7 @@ html {
           border-right: 1px solid $color_4;
           border-left: 1px solid $color_4;
         }
+        // Card Header
         td:first-child{
           border-radius: $br $br 0 0;
           background: $color_2;
@@ -287,9 +301,51 @@ html {
   }
 }
 
+// Small Devices Layout
+
 @media screen and (max-width: $small) {
-  // one card per row in mobile layout
+
+  // One card per row in mobile layout
   .file-list table tbody tr{
     width: 100%;
   }
+  .nav-toggle{
+    display: block;
+    position: absolute;
+    left: 0;
+    padding: ($default-padding/4);
+    font-size: $subtitle-size;
+    border-radius: $br;
+    color: $color_0;
+  }
+  // Drawer Menu
+  .nav {
+    position: fixed;
+    height: 100%;
+    width: 200px;
+    background: $color_1;
+    opacity: 0.95;
+    z-index: 999;
+    top: 0;
+    transform: translate(-200px,0);
+    &.open{
+      transform: translate(0,0);
+    }
+    &:before{
+      content: "Menu";
+      padding: ($default-padding/2);
+      margin: $default-margin auto;
+      font-family: $lato;
+      font-weight: 700;
+      display: block;
+    }
+    li{
+      display: block;
+      padding: ($default-padding/2);
+      background: rgba(255,255,255,0.05);
+      margin:  ($default-margin/2);
+      border-radius: $br;
+    }
+  }
+
 }
