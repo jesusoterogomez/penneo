@@ -2,8 +2,7 @@
   <table st-table="displayedList" st-safe-src="list">
     <thead>
       <tr>
-        <th colspan="2"></th>
-
+        <th colspan="2">Files</th>
         <th colspan="3">
           <input st-search placeholder="Search" class="input-sm form-control" type="search"/>
         </th>
@@ -18,11 +17,31 @@
     </thead>
     <tbody>
       <tr ng-repeat="row in displayedList">
-        <td>{{ row.title }}</td>
-        <td>{{ row.created * 1000 | amDateFormat:'DD/MM/YYYY, h:mm a' }}</td>
-        <td>{{ row.modified * 1000 | amDateFormat:'DD/MM/YYYY, h:mm a' }}</td>
-        <td>{{ row.type }}</td>
-        <td>{{ row.statusName }}</td>
+        <td>
+          <i ng-if="row.type == 'folder'" class="fa fa-folder"></i> 
+          <i ng-if="row.type == 'file'" class="fa fa-file"></i>
+          <i ng-if="row.type == 'document'" class="fa fa-file-text"></i>
+          <i ng-if="row.type == 'casefile'" class="fa fa-archive"></i>
+          {{ row.title }}
+        </td>
+        <td>
+          <span class="card">Created: </span>
+          {{ row.created * 1000 | amDateFormat:'DD/MM/YYYY, h:mm a' }}
+        </td>
+        <td>
+          <span class="card">Modified: </span>
+          <span>
+            {{ row.modified * 1000 | amDateFormat:'DD/MM/YYYY, h:mm a' }}
+          </span>
+        </td>
+        <td class="capitalize">
+          <span class="card">Type: </span>
+          {{ row.type }}
+        </td>
+        <td class="capitalize">
+          <span class="card">Status: </span>
+          {{ row.statusName }}
+        </td>
       </tr>
     </tbody>
     <tfoot>

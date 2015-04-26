@@ -96,6 +96,11 @@ html {
   }
 }
 
+// Capitalize words.
+.capitalize {
+  text-transform: capitalize;
+}
+
 // Base Container
 .container {
   width: $default-container-size;
@@ -119,24 +124,14 @@ html {
   }
 }
 
-// .file-list{
-//   li{
-//     width: 50%;
-//     box-sizing:border-box;
-//     display: inline-block;
-//     padding:$default-padding/2;
-//     .file{
-//       background: $color_4;
-//       padding:$default-padding/2;
-
-//     }
-//   }
-// }
-// 
 
 .file-list table{
   width: 100%;
 
+  .card {
+    display: none;
+  }
+  
   thead .table-headers{
     border-radius: $br;
     background: $color_2;
@@ -211,11 +206,90 @@ html {
       display: inline-block;
     }
     &:first-child {
-        margin-left: 0;
+      margin-left: 0;
     }
     &.active {
       background: $color_2;
       color: $color_1;
     }
+  }
+}
+
+@media screen and (max-width: $medium) {
+
+  .file-list table{
+    display: block;
+    .card {
+      display: inline;
+
+      font-weight: 700;
+    }
+    td, th, tr, tfoot {
+      display: block;
+    }
+    thead {
+      width: 100%;
+      display: block;
+      padding: 0 1em;
+      box-sizing: border-box;
+    }
+    //hide table headers
+    .table-headers {
+      display: none;
+    }
+    //prepare card style for tablet & mobile
+    tbody {
+      background: none;
+      border:none;
+      display: block;
+      width: 100%;
+      box-sizing:border-box;
+      position: relative;
+      tr{
+        box-sizing:border-box;
+        display: inline-block;
+        background: none;
+        width: 50%;
+        padding:$default-padding;
+        td{
+          background: $color_0;
+          padding: 0 $default-padding;
+          border-right: 1px solid $color_4;
+          border-left: 1px solid $color_4;
+        }
+        td:first-child{
+          border-radius: $br $br 0 0;
+          background: $color_2;
+          border:1px solid $color_2;
+          color: $color_1;
+          font-family: $lato;
+          font-size: $header-menu-size;
+          font-weight: 700;
+          padding:($default-padding/2);
+        }
+        td:nth-child(2){
+          padding-top: $default-padding;
+        }
+        td:last-child{
+          padding-bottom: $default-padding;
+          border-bottom: 1px solid $color_4;
+          border-radius: 0 0 $br $br;
+        }
+      }
+    }
+    // center pagination button
+    tfoot{
+      width: 100%;
+      .pagination{
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $small) {
+  // one card per row in mobile layout
+  .file-list table tbody tr{
+    width: 100%;
   }
 }
