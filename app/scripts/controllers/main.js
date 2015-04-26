@@ -13,7 +13,7 @@
  	$scope.itemsByPage = 4;
 
  	fileService.list().then(function (response) {
- 		getStatusNames(response.data);
+ 		getStatusNames(response.data); 
  		$scope.list = response.data;
  		$scope.displayedList = response.data;
  	});

@@ -17,26 +17,26 @@
 
  	function list () {
  		var request = $http.get(ENV.filesData);
-
  		return request.then(
  			function(response) {
  				return response.data;
  			},
  			function(data, status) {
  				return {error: data, status: status};
- 			});
+ 			}
+ 		);
  	}
 
  	function getStatus (status) {
- 	var request = $http.get(ENV.statusData);
-
+ 		var request = $http.get(ENV.statusData);
  		return request.then(
  			function(response) {
  				return response.data;
  			},
  			function(data, status) {
  				return {error: data, status: status};
- 			});
+ 			}
+ 		);
  	}
 
  });
