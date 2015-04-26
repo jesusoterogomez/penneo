@@ -9,9 +9,12 @@
  */
  angular.module('penneoApp')
  .controller('MainCtrl', function ($scope, fileService) {
+ 	$scope.list = [];
+ 	$scope.itemsByPage = 10;
 
  	fileService.list().then(function (response) {
- 		$scope.files = response.data;
+ 		$scope.list = response.data;
+ 		$scope.displayedList = response.data;
  	});
- 	
+
  });
