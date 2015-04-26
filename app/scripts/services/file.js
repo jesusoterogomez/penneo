@@ -28,8 +28,15 @@
  	}
 
  	function getStatus (status) {
+ 	var request = $http.get(ENV.statusData);
 
- 		return status;
+ 		return request.then(
+ 			function(response) {
+ 				return response.data;
+ 			},
+ 			function(data, status) {
+ 				return {error: data, status: status};
+ 			});
  	}
 
  });
