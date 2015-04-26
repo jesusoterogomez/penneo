@@ -57,4 +57,8 @@ All code is being monitored by Grunt's `watch` task and will be reloaded in the 
 
 ## Testing
 
-Running `grunt test` will run the unit tests with karma. For demonstration purposes, all unit tests output the description to the console.
+To run the unit tests with Karma, using a headless testing browser (PhantomJS), use the following code in the console:
+```sh
+$ grunt test
+```
+For demonstration purposes, all unit tests output the description to the console.
