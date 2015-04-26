@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Service: fileService', function () {
+describe('Service: file', function () {
 
   // load the service's module
   beforeEach(module('penneoApp'));
 
   // instantiate service
   var file;
-  beforeEach(inject(function (_file_) {
-    file = _file_;
+  beforeEach(inject(function (_fileService_) {
+    file = _fileService_;
   }));
 
-  it('should do something', function () {
+  it('fileService should be initialized', function () {
     expect(!!file).toBe(true);
   });
 
