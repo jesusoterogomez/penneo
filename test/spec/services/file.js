@@ -13,6 +13,7 @@ describe('Service: file', function () {
 
   it('fileService should be initialized', function () {
     expect(!!file).toBe(true);
+    console.info('Test 5: fileService should be defined');
   });
 
 });
