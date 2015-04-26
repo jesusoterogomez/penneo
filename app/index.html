@@ -21,7 +21,7 @@
         <div class="container">
           <div class="navbar-header">
           <!-- mobile drawer icon -->
-          <a href="#" class="mobile nav-toggle" ng-click="mobileDrawer($event)"><i class="fa fa-lg fa-bars"></i></a>
+          <a href="#" class="mobile nav-toggle" ng-click="mobileDrawer($event)"><i class="fa fa-bars"></i></a>
           <a class="navbar-brand" href="#/">
             <img class="logo" src="images/logo_white.png" alt="Penneo">
           </a>
@@ -30,16 +30,17 @@
 
         <ul class="nav navbar-nav">
               <a href="#/" class="mobile close" ng-click="mobileDrawer($event)"><i class="fa fa-close"></i></a>
-              <li class="active"><a href="#/">My Files</a></li>
-              <li><a ng-href="#/about">Inbox</a></li>
-              <li><a ng-href="#/">Support</a></li>
+              <li class="active" ng-click="menuSelection($event)"><a href="#/">My Files</a></li>
+              <li ng-click="menuSelection($event)"><a ng-href="#/about">Inbox</a></li>
+              <li ng-click="menuSelection($event)"><a ng-href="#/">Support</a></li>
         </ul>
     </div>
 
     <div class="container">
+      <div class="toggleOverlay"></div> 
+      <!-- toggleOverlay is used to create an effect over the whole page when the mobile menu is enabled -->
       <div class="main-content" ng-view=""></div>
     </div>
-
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -55,6 +56,7 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -68,12 +70,12 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/services/file.js"></script>
-        <script src="scripts/services/config.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/services/file.js"></script>
+    <script src="scripts/services/config.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

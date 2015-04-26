@@ -45,6 +45,7 @@ $default-margin: 1em;
 $default-container-size: 90%;
 $medium-container-size: 80%;
 $large-container-size: 70%;
+$logo-height: 32px;
 $br: 4px; 
 
 // Breakpoints
@@ -70,20 +71,30 @@ html {
   background: $header-background;
   color: $header-color;
   position: relative;
-  text-align: center;
+  text-align: left;
   .container{
     padding: $default-padding 0;
   }
   .logo{
-    height: 32px;
+    height: $logo-height;
     /*To optimize bandwith consumption, the image should be this size instead of
     scaling it down, but since I don't have a vector image for the logo, I used
     the logo from Penneo.com and manually scaled it. */
   }
 }
 
+// Always Hide Overlay Effect on mobile.
+.toggleOverlay{
+    display: none;
+}
+
 // Navigation
 .nav {
+  position: absolute;
+  top: 1em;
+  text-align: right;
+  right: (100% - $default-container-size)/2; // spacing between content and page border.
+  line-height: $logo-height; // line height same as logo to keep all content in header aligned.
   padding-bottom: $default-padding;
   li {
     display: inline-block;
@@ -115,7 +126,12 @@ html {
 
 .main-content {
   padding: ($default-padding*2) 0;
-}
+  &.open{
+    filter: grayscale(80%);
+    opacity: 0.8;
+    transition: all 0.5s ease;
+  }
+} 
 
 /* Subtle animation for rendered ng-repeat items */
 /* On a bigger project, the animations can be set on a per-interaction basis.
@@ -226,15 +242,31 @@ application, as it gives a smoother overall feeling.*/
   }
 }
 
+.mobile{
+  display: none;
+}
 // Medium Devices Breakpoint. (Transforms Table into Cards Layout)
 
 @media screen and (max-width: $medium) {
-  .file-list table{
-    display: block;
-    .card {
-      display: inline;
-      font-weight: 700;
-    }
+
+  .header{
+    text-align: center;
+  }
+  //reset nav settings
+  .nav {
+    position: relative;
+    text-align: center;
+    top: auto;
+    right: auto; // spacing between content and page border.
+    line-height: normal; // line height same as logo to keep all content in header aligned.
+  }
+
+.file-list table{
+  display: block;
+  .card {
+    display: inline;
+    font-weight: 700;
+  }
     // Convert table elements to block to stack them into a card layout.
     td, th, tr, tfoot {
       display: block;
@@ -304,6 +336,19 @@ application, as it gives a smoother overall feeling.*/
 // Small Devices Layout
 
 @media screen and (max-width: $small) {
+  
+  // Overlay effect on menu toggle.
+  .toggleOverlay{
+    background: $color_2;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left:0;
+    display: none;
+    position: fixed;
+    z-index: 100;
+  }
 
   // One card per row in mobile layout
   .file-list table tbody tr{
@@ -314,7 +359,17 @@ application, as it gives a smoother overall feeling.*/
     position: absolute;
     left: 0;
     padding: ($default-padding/4);
+    padding-top: 0;
     font-size: $subtitle-size;
+    border-radius: $br;
+    color: $color_0;
+  }
+  .mobile.close{
+    display: block;
+    position: absolute;
+    right: $default-margin;
+    top: $default-margin;
+    padding: ($default-padding/2);
     border-radius: $br;
     color: $color_0;
   }
@@ -327,9 +382,10 @@ application, as it gives a smoother overall feeling.*/
     opacity: 0.95;
     z-index: 999;
     top: 0;
-    transform: translate(-200px,0);
+    left: -200px;
+    transition: transform 0.3s ease;
     &.open{
-      transform: translate(0,0);
+      transform: translate(200px,0);
     }
     &:before{
       content: "Menu";
@@ -343,7 +399,7 @@ application, as it gives a smoother overall feeling.*/
       display: block;
       padding: ($default-padding/2);
       background: rgba(255,255,255,0.05);
-      margin:  ($default-margin/2);
+      margin: ($default-margin/2);
       border-radius: $br;
     }
   }

@@ -32,7 +32,13 @@
 
  	$scope.mobileDrawer = function (event) {
  		event.preventDefault();
- 		angular.element('.nav').toggleClass('open');
+ 		$('.nav').toggleClass('open');
+ 		$('.toggleOverlay').fadeToggle(300);
+ 	}
+
+ 	$scope.menuSelection = function (event) {
+ 		$('.nav').removeClass('open');
+ 		$('.toggleOverlay').fadeOut(300);
  	}
 
  });
