@@ -11,10 +11,10 @@ $ cd penneo
 
 This application's dependencies are managed by [npm](https://www.npmjs.org/) and [Bower](https://www.npmjs.org/), before proceding with the cli commands below, make sure you have [node.js](http://nodejs.org/) and [npm](https://www.npmjs.org/) installed.
 
-Install [Bower](https://www.npmjs.org/) with: 
+Install [Bower](https://www.npmjs.org/) and Grunt-cli globally to be able to run Grunt tasks from command line with: 
 
 ```sh
-npm install -g bower
+npm install -g bower grunt-cli
 ```
 
 ####Install project dependencies
