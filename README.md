@@ -21,7 +21,8 @@ npm install -g bower grunt-cli
 npm and bower handle the installation of all the dependencies within the project. Check the list of dependencies in `package.json` and `bower.json` in the project root
 
 ```sh
-$ npm install && bower install
+$ npm install
+$ bower install
 ```
 
 ####Install Ruby
