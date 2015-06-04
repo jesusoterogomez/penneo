@@ -14,7 +14,7 @@ This application's dependencies are managed by [npm](https://www.npmjs.org/) and
 Install [Bower](http://bower.io/) and [Grunt-cli](http://gruntjs.com/) globally to be able to run Grunt tasks from command line with: 
 
 ```sh
-npm install -g bower grunt-cli
+$ npm install -g bower grunt-cli
 ```
 
 ####Install project dependencies
